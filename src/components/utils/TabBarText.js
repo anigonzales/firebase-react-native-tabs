@@ -7,8 +7,8 @@ export default (props) => {
       style={{
         marginBottom: 5,
         color: props.focused
-            ? themeColor.white100
-            : themeColor.primary,
+            ? "gold"
+            : "#7CAC65",
         fontSize: 10,
       }}
     >

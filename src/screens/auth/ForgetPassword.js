@@ -47,7 +47,7 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: is ? "#17171E" : themeColor.white100,
+              backgroundColor: "white",
             }}
           >
             <Image

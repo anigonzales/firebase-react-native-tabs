@@ -22,13 +22,6 @@ export default function About({navigation}) {
           Learn More About Secret Chaperone
         </Text> 
     </View>
-
-    <Button
-        mode="outlined"
-        onPress={() => navigation.navigate('accountInfo')}>
-        Edit Account Information
-      </Button>
-
 	  <Button
         mode="outlined"
         onPress={() => signOut(auth)}

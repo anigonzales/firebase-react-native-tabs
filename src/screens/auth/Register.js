@@ -6,7 +6,7 @@ import {
   KeyboardAvoidingView,
   Image,
 } from "react-native";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {
   Layout,
   Text,
@@ -24,16 +24,14 @@ export default function ({ navigation }) {
 
   async function register() {
     setLoading(true);
-    await createUserWithEmailAndPassword(auth, email, password).catch(function (
-      error
-    ) {
+    await createUserWithEmailAndPassword(auth, email, password).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
       setLoading(false);
       alert(errorMessage);
-    });
+    })
   }
 
   return (
@@ -58,7 +56,7 @@ export default function ({ navigation }) {
                 height: 220,
                 width: 220,
               }}
-              source={require("../../../assets/register.png")}
+              source={require("../../../assets/logo.png")}
             />
           </View>
           <View
@@ -105,7 +103,12 @@ export default function ({ navigation }) {
             <Button
               text={loading ? "Loading" : "Create an account"}
               onPress={() => {
-                register();
+               register() 
+              //  ?
+              //  navigation.reset({
+              //   index: 0,
+              //   routes: [{ name: "TermsAndConditions" }],
+              // }) :""
               }}
               style={{
                 marginTop: 20,

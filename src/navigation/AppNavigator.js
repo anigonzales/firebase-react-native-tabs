@@ -4,13 +4,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { useTheme, themeColor } from "react-native-rapi-ui";
+// import { useTheme, themeColor } from "react-native-rapi-ui";
 import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
 
 //Screens
 import Home from "../screens/Home";
-import SecondScreen from "../screens/SecondScreen";
+// import SecondScreen from "../screens/SecondScreen";
 import About from "../screens/About";
 import Profile from "../screens/Profile";
 import Loading from "../screens/utils/Loading";
@@ -66,19 +66,34 @@ const Main = () => {
         headerShown: false,
       }}
     >
-      {/* where the screens go */}
       <MainStack.Screen name="MainTabs" component={MainTabs} />
-      <MainStack.Screen name="SecondScreen" component={SecondScreen} />
+      {/* <MainStack.Screen name="TermsAndConditions" component={TermsAndConditions} /> */}
       <MainStack.Screen name="addContact" component={addContact} />
       <MainStack.Screen name="addEvent" component={addEvent} />
       <MainStack.Screen name="Contacts" component={Contacts} />
       <MainStack.Screen name="editProfile" component={editProfile} />
       <MainStack.Screen name="eventCard" component={eventCard} />
       <MainStack.Screen name="Events" component={Events} />
+      {/* <MainStack.Screen name="initialContactCreate" component={initialContactCreate} />
+      <MainStack.Screen name="initialProfileEdit" component={initialProfileEdit} /> */}
+
+    </MainStack.Navigator>
+  );
+};
+
+const RegisterStack = createNativeStackNavigator();
+const Registration = () => {
+  return (
+    <RegisterStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <MainStack.Screen name="TermsAndConditions" component={TermsAndConditions} />
       <MainStack.Screen name="initialContactCreate" component={initialContactCreate} />
       <MainStack.Screen name="initialProfileEdit" component={initialProfileEdit} />
-      <MainStack.Screen name="TermsAndConditions" component={TermsAndConditions} />
-    </MainStack.Navigator>
+
+    </RegisterStack.Navigator>
   );
 };
 
@@ -115,7 +130,7 @@ const MainTabs = () => {
             <TabBarText focused={focused} title="Contacts" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"person"} />
+            <TabBarIcon focused={focused} icon={"book"} />
           ),
         }}
       />
@@ -127,7 +142,7 @@ const MainTabs = () => {
             <TabBarText focused={focused} title="Events" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-information-circle"} />
+            <TabBarIcon focused={focused} icon={"bookmark"} />
           ),
         }}
       />
@@ -139,7 +154,7 @@ const MainTabs = () => {
             <TabBarText focused={focused} title="About" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"ios-information-circle"} />
+            <TabBarIcon focused={focused} icon={"cog"} />
           ),
         }}
       />
@@ -155,6 +170,7 @@ export default () => {
       {user == null && <Loading />}
       {user == false && <Auth />}
       {user == true && <Main />}
+      {/* {user == true && <Registration />} */}
     </NavigationContainer>
   );
 };

@@ -11,6 +11,10 @@ export default function App() {
     require("./assets/login.png"),
     require("./assets/register.png"),
     require("./assets/forget.png"),
+    require("./assets/arrow_back.png"),
+    // require("./assets/arrow_back@2x.png"),
+    require("./assets/logo.png"),
+    require("./assets/small_logo.png"),
   ];
 
   // Ignore firebase v9 AsyncStorage warning

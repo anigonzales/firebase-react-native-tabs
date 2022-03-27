@@ -10,8 +10,8 @@ export default (props) => {
       size={24}
       color={
         props.focused
-            ? themeColor.white100
-            : themeColor.primary
+          ? "gold"
+          : "#7CAC65"
       }
     />
   );

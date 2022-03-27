@@ -49,7 +49,7 @@ export default function ({ navigation }) {
               flex: 1,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: themeColor.white100,
+              backgroundColor: "white",
             }}
           >
             <Image
@@ -58,7 +58,7 @@ export default function ({ navigation }) {
                 height: 220,
                 width: 220,
               }}
-              source={require("../../../assets/login.png")}
+              source={require("../../../assets/logo.png")}
             />
           </View>
           <View
@@ -66,7 +66,7 @@ export default function ({ navigation }) {
               flex: 3,
               paddingHorizontal: 20,
               paddingBottom: 20,
-              backgroundColor: themeColor.white,
+              backgroundColor: "white",
             }}
           >
             <Text
