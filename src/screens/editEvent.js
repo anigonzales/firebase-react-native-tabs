@@ -1,6 +1,6 @@
 import React, { useState, Component, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
-import axios from "axios";
+// import axios from "axios";
 import Header from "../components/Header";
 import { MultiSelect } from "react-native-element-dropdown";
 import BackButton from "../components/BackButton";
@@ -47,21 +47,21 @@ export default function editEvent({ navigation, route }) {
     info: [],
   });
 
-  useEffect(() => {
-    axios
-      .get(
-        "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/contacts"
-      )
-      .then((response) => {
-        setContactInfo((table) => {
-          const contactsCall = { ...table };
-          response.data.map((d) => {
-            contactsCall.info = [...contactsCall.info, d];
-          });
-          return contactsCall;
-        });
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/contacts"
+  //     )
+  //     .then((response) => {
+  //       setContactInfo((table) => {
+  //         const contactsCall = { ...table };
+  //         response.data.map((d) => {
+  //           contactsCall.info = [...contactsCall.info, d];
+  //         });
+  //         return contactsCall;
+  //       });
+  //     });
+  // }, []);
 
   const cons = contactInfo.info;
 
@@ -74,22 +74,22 @@ export default function editEvent({ navigation, route }) {
   };
 
   ///////////////////////////////////////PUT/////////////////////////////////////////////
-  const updateEvent = () => {
-    axios
-      .post(
-        "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/events/update/" +
-          ID,
-        {
-          name,
-          location,
-          contacts,
-          sms,
-          email,
-        }
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
+  // const updateEvent = () => {
+  //   axios
+  //     .post(
+  //       "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/events/update/" +
+  //         ID,
+  //       {
+  //         name,
+  //         location,
+  //         contacts,
+  //         sms,
+  //         email,
+  //       }
+  //     )
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.log(err));
+  // };
 
   const createTwoButtonAlert = () =>
     Alert.alert("Event Updated!", "", [
@@ -97,30 +97,30 @@ export default function editEvent({ navigation, route }) {
     ]);
 
   const functionCombined = () => {
-    updateEvent();
+    // updateEvent();
     createTwoButtonAlert();
     navigation.reset({
       index: 0,
-      routes: [{ name: "Dashboard" }],
+      routes: [{ name: "Home" }],
     });
   };
   ///////////////////////////////////////DELETE/////////////////////////////////////////////
-  const deleteEvent = () => {
-    axios
-      .delete(
-        "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/events/" +
-          ID,
-        {
-          name,
-          location,
-          contacts,
-          sms,
-          email,
-        }
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
+  // const deleteEvent = () => {
+  //   axios
+  //     .delete(
+  //       "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/events/" +
+  //         ID,
+  //       {
+  //         name,
+  //         location,
+  //         contacts,
+  //         sms,
+  //         email,
+  //       }
+  //     )
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.log(err));
+  // };
 
   const createThreeButtonAlert = () =>
     Alert.alert("Event Deleted!", "", [
@@ -128,7 +128,7 @@ export default function editEvent({ navigation, route }) {
     ]);
 
   const functionCombined2 = () => {
-    deleteEvent();
+    // deleteEvent();
     createThreeButtonAlert();
     navigation.reset({
       index: 0,

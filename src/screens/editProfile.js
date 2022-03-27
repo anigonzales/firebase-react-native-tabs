@@ -80,14 +80,14 @@ export default function editProfile() {
     //axios update user info
     navigation.reset({
       index: 0,
-      routes: [{ name: "Dashboard" }],
+      routes: [{ name: "Home" }],
     });
   };
 
   const onCancelPressed = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: "Dashboard" }],
+      routes: [{ name: "Home" }],
     });
   };
 

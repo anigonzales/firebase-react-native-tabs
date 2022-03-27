@@ -10,7 +10,6 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
-  const { isDarkmode } = useTheme();
   return (
     <Layout>
       <TopNav
@@ -19,7 +18,7 @@ export default function ({ navigation }) {
           <Ionicons
             name="chevron-back"
             size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.black}
+            color={themeColor.black}
           />
         }
         leftAction={() => navigation.goBack()}

@@ -7,13 +7,8 @@ import {
   Card,
   ScrollView,
 } from "react-native";
-import axios from "axios";
-import Constants from "expo-constants";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { NavigationContainer, useIsFocused } from "@react-navigation/native";
-
-const url = "http://9356-2600-6c63-647f-979d-518-2a01-e11f-514a.ngrok.io";
 
 export default function Contacts() {
   const [contactInfo, setContactInfo] = useState({
@@ -28,22 +23,6 @@ export default function Contacts() {
     info: [],
   });
 
-  useEffect(() => {
-    axios
-      .get(
-        "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/contacts"
-      )
-      .then((response) => {
-        setContactInfo((table) => {
-          const contactsCall = { ...table };
-          response.data.map((d) => {
-            contactsCall.info = [...contactsCall.info, d];
-          });
-          return contactsCall;
-        });
-      });
-  }, []);
-
   const contacts = contactInfo.info;
 
   const navigation = useNavigation();
@@ -52,32 +31,6 @@ export default function Contacts() {
     b.full_name.localeCompare(a.full_name)
   );
 
-  /*useEffect(() => {
-    const getContacts = () => {
-      const data = axios.get(
-        "http://eb54-2600-6c63-647f-979d-8c69-3391-84b3-f619.ngrok.io/contacts"
-      );
-      setFetchedData(data);
-    };
-    getContacts();
-  }, []);
-  console.log("data: ", fetchedData);*/
-
-  /*useEffect(() => {
-    axios
-      .post(
-        "http://fffe-2600-6c63-647f-979d-19f0-8c46-b5a-e0f9.ngrok.io/contacts/add",
-        {
-          full_name: "tyler",
-          phone: "985-254-2454",
-          email: "tyrr@mail.com",
-        }
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  });*/
-
-  //  {fetchedData.data ? <Text>{fetchedData.data.full_name}</Text> : null}
   return (
     <View style={styles.container}>
       <View style={styles.top}>

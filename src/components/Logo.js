@@ -2,7 +2,7 @@ import React from 'react'
 import { Image } from 'react-native'
 
 export default function Logo() {
-  return <Image source={require('../assets/logo.png')} style={{
+  return <Image source={require('../../assets/login.png')} style={{
     width: 260,
     height: 150,
     marginBottom: 8,

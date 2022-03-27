@@ -7,19 +7,29 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useTheme, themeColor } from "react-native-rapi-ui";
 import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
+
 //Screens
 import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
 import About from "../screens/About";
 import Profile from "../screens/Profile";
 import Loading from "../screens/utils/Loading";
+import addContact from "../screens/addContact";
+import addEvent from "../screens/addEvent";
+import Contacts from "../screens/Contacts";
+import editProfile from "../screens/editProfile";
+import eventCard from "../screens/eventCard";
+import Events from "../screens/Events";
+import initialContactCreate from "../screens/initialContactCreate";
+import initialProfileEdit from "../screens/initialProfileEdit";
+import TermsAndConditions from "../screens/TermsAndConditions";
+
 // Auth screens
 import Login from "../screens/auth/Login";
 import Register from "../screens/auth/Register";
 import ForgetPassword from "../screens/auth/ForgetPassword";
 import { AuthContext } from "../provider/AuthProvider";
 
-// Better put your these secret keys in .env file
 const firebaseConfig = {
   apiKey: "AIzaSyCP7zyTpXCD0HHdsqAuVCnQABEfEIVt0vk",
   authDomain: "new-react-example.firebaseapp.com",
@@ -56,22 +66,31 @@ const Main = () => {
         headerShown: false,
       }}
     >
+      {/* where the screens go */}
       <MainStack.Screen name="MainTabs" component={MainTabs} />
       <MainStack.Screen name="SecondScreen" component={SecondScreen} />
+      <MainStack.Screen name="addContact" component={addContact} />
+      <MainStack.Screen name="addEvent" component={addEvent} />
+      <MainStack.Screen name="Contacts" component={Contacts} />
+      <MainStack.Screen name="editProfile" component={editProfile} />
+      <MainStack.Screen name="eventCard" component={eventCard} />
+      <MainStack.Screen name="Events" component={Events} />
+      <MainStack.Screen name="initialContactCreate" component={initialContactCreate} />
+      <MainStack.Screen name="initialProfileEdit" component={initialProfileEdit} />
+      <MainStack.Screen name="TermsAndConditions" component={TermsAndConditions} />
     </MainStack.Navigator>
   );
 };
 
 const Tabs = createBottomTabNavigator();
 const MainTabs = () => {
-  const { isDarkmode } = useTheme();
   return (
     <Tabs.Navigator
       screenOptions={{
         headerShown: true,
         tabBarStyle: {
-          borderTopColor: isDarkmode ? themeColor.dark100 : "#c0c0c0",
-          backgroundColor: isDarkmode ? themeColor.dark200 : "#ffffff",
+          borderTopColor: "#c0c0c0",
+          backgroundColor: "#ffffff",
         },
       }}
     >
@@ -89,11 +108,11 @@ const MainTabs = () => {
         }}
       />
       <Tabs.Screen
-        name="Profile"
-        component={Profile}
+        name="Contacts"
+        component={Contacts}
         options={{
           tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Profile" />
+            <TabBarText focused={focused} title="Contacts" />
           ),
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} icon={"person"} />
@@ -101,7 +120,19 @@ const MainTabs = () => {
         }}
       />
       <Tabs.Screen
-        name="About"
+        name="Events"
+        component={Events}
+        options={{
+          tabBarLabel: ({ focused }) => (
+            <TabBarText focused={focused} title="Events" />
+          ),
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} icon={"ios-information-circle"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Settings"
         component={About}
         options={{
           tabBarLabel: ({ focused }) => (

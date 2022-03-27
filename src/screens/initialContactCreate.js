@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, Alert, View } from "react-native";
 import TextInput from "../components/TextInput";
 import Header from "../components/Header";
-import axios from "axios";
+// import axios from "axios";
 import Paragraph from "../components/Paragraph";
 
 export default function initialContactCreate({ navigation }) {
@@ -22,24 +22,24 @@ export default function initialContactCreate({ navigation }) {
     setEmail(email);
   };
 
-  const postcontact = () => {
-    axios
-      .post(
-        "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/contacts/add",
-        {
-          full_name,
-          phone,
-          email,
-        }
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
+  // const postcontact = () => {
+  //   axios
+  //     .post(
+  //       "http://bc12-2600-6c63-647f-979d-8dea-21b0-6f9f-42f.ngrok.io/contacts/add",
+  //       {
+  //         full_name,
+  //         phone,
+  //         email,
+  //       }
+  //     )
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.log(err));
+  // };
 
   const toHome = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: "Dashboard" }],
+      routes: [{ name: "Home" }],
     });
   };
 
@@ -49,7 +49,7 @@ export default function initialContactCreate({ navigation }) {
     ]);
 
   const functionCombined = () => {
-    postcontact();
+    // postcontact();
     toHome();
     createTwoButtonAlert();
   };
