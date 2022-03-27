@@ -10,15 +10,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import Header from "../components/Header";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { getAuth, signOut } from "firebase/auth";
-import {
-  Layout,
-  Button,
-  TopNav,
-  Section,
-  SectionContent,
-  useTheme,
-} from "react-native-rapi-ui";
 
 export default function Home() {
   const [eventInfo, setEventInfo] = useState({
@@ -34,8 +25,6 @@ export default function Home() {
     ],
     info: [],
   });
-
-  const auth = getAuth();
 
   const events = eventInfo.info;
 
@@ -118,33 +107,6 @@ export default function Home() {
             </Text>
           </TouchableOpacity>
         </View>
-
-        <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          marginHorizontal: 20,
-        }}
-      >
-        <Section>
-          <SectionContent>
-            <Text fontWeight="bold" style={{ textAlign: "center" }}>
-              These UI components provided by Rapi UI
-            </Text>
-            <Button
-              status="danger"
-              text="Logout"
-              onPress={() => {
-                signOut(auth);
-              }}
-              style={{
-                marginTop: 10,
-              }}
-            />
-          </SectionContent>
-        </Section>
-      </View>
       </ScrollView>
     </View>
   );
