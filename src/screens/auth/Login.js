@@ -108,7 +108,7 @@ export default function ({ navigation }) {
                 login();
               }}
               style={{
-                marginTop: 20,
+                marginTop: 20
               }}
               disabled={loading}
             />

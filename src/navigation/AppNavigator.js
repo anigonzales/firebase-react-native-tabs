@@ -31,12 +31,12 @@ import ForgetPassword from "../screens/auth/ForgetPassword";
 import { AuthContext } from "../provider/AuthProvider";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCP7zyTpXCD0HHdsqAuVCnQABEfEIVt0vk",
-  authDomain: "new-react-example.firebaseapp.com",
-  projectId: "new-react-example",
-  storageBucket: "new-react-example.appspot.com",
-  messagingSenderId: "928463695266",
-  appId: "1:928463695266:web:f8c3df457bd98995d756fb"
+  apiKey: "AIzaSyA34I_cdTs09bOzNnEDjkjM_ectEiNmYQM",
+  authDomain: "secret-chaperone.firebaseapp.com",
+  projectId: "secret-chaperone",
+  storageBucket: "secret-chaperone.appspot.com",
+  messagingSenderId: "256277382669",
+  appId: "1:256277382669:web:62f73a436a82f01075f744"
 };
 
 if (getApps().length === 0) {
